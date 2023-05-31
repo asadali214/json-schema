@@ -9,6 +9,7 @@
         "array",
         "null"
       ],
+      "description": "Run all the configurations for this list of APIs",
       "items": {
         "$ref": "#/definitions/SelectedApi"
       }
@@ -18,6 +19,7 @@
         "null",
         "object"
       ],
+      "description": "Run all the configurations for this list of APIs too, Here keys (i.e. folder paths) will be concatenated with each Api's FilePath",
       "additionalProperties": {
         "type": "array",
         "items": {
@@ -30,6 +32,7 @@
         "array",
         "null"
       ],
+      "description": "List of languages to be used by all the configurations",
       "items": {
         "$ref": "#/definitions/Languages"
       }
@@ -39,6 +42,7 @@
         "array",
         "null"
       ],
+      "description": "Select configuration names from the Configurations Dictionary. These configurations will be executed.",
       "items": {
         "type": "string"
       }
@@ -48,16 +52,8 @@
         "null",
         "object"
       ],
+      "description": "Dictionary of API configurations, here Keys are configuration names.",
       "additionalProperties": {
-        "$ref": "#/definitions/ApiConfig"
-      }
-    },
-    "SelectedConfigurations": {
-      "type": [
-        "array",
-        "null"
-      ],
-      "items": {
         "$ref": "#/definitions/ApiConfig"
       }
     }
@@ -68,19 +64,19 @@
       "additionalProperties": false,
       "properties": {
         "FilePath": {
-          "type": [
-            "null",
-            "string"
-          ]
+          "type": "string",
+          "description": "Full path of the spec file, or any spec name from the CI spec directory."
         },
         "Merge": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controls the merging of all the specs in the directory, when the FilePath leads to a directory."
         },
         "Namespaces": {
           "type": [
             "null",
             "object"
           ],
+          "description": "Should only present if we want to merge namespaces to the spec specified at FilePath. Here key is the namespace name, while value is its FilePath"
           "additionalProperties": {
             "type": "string"
           }
@@ -90,39 +86,16 @@
             "array",
             "null"
           ],
+          "description": "Restrict code generation for this api to a limited number of languages",
           "items": {
             "$ref": "#/definitions/Languages"
           }
         }
       }
     },
-    "SupportedTemplates": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "CS_NET_STANDARD_LIB",
-        "JAVA_ECLIPSE_JRE_LIB",
-        "PYTHON_GENERIC_LIB",
-        "RUBY_GENERIC_LIB",
-        "GO_GENERIC_LIB",
-        "HTTP_CURL_V1",
-        "PHP_GENERIC_LIB_V2",
-        "TS_GENERIC_LIB"
-      ],
-      "enum": [
-        "CS_NET_STANDARD_LIB",
-        "JAVA_ECLIPSE_JRE_LIB",
-        "PYTHON_GENERIC_LIB",
-        "RUBY_GENERIC_LIB",
-        "GO_GENERIC_LIB",
-        "HTTP_CURL_V1",
-        "PHP_GENERIC_LIB_V2",
-        "TS_GENERIC_LIB"
-      ]
-    }
     "Languages": {
       "type": "string",
-      "description": "",
+      "description": "List of supported languages",
       "x-enumNames": [
         "cs",
         "java",
@@ -146,17 +119,12 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "Apis": {
           "type": [
             "array",
             "null"
           ],
+          "description": "List of APIs to be generated only for this configuration",
           "items": {
             "$ref": "#/definitions/SelectedApi"
           }
@@ -166,69 +134,70 @@
             "array",
             "null"
           ],
+          "description": "List of languages to be used only by this configuration",
           "items": {
             "$ref": "#/definitions/Languages"
           }
         },
         "UseCiSpecs": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controls the generation of all the APIs in the CI specs directory, Default: false"
         },
         "UseGlobalApis": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controls the inclusion of global apis in local apis, Default: true"
         },
         "UseGlobalTemplates": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controls the inclusion of global templates in local templates, Default: true"
         },
         "OpenAfterGeneration": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Open generated folder or file after generation, Default: false"
         },
         "OutputDirPath": {
-          "type": [
-            "null",
-            "string"
-          ]
+          "type": "string",
+          "description": "Path of the folder where Docs or SDKs would be generated, Default: bin/*/*/"
         },
         "DirectoryPostFix": {
-          "type": [
-            "null",
-            "string"
-          ]
+          "type": "string",
+          "description": "Postfix added to the SDKs or Docs generated folders, Default: \"\""
         },
         "SdksPath": {
-          "type": [
-            "null",
-            "string"
-          ]
+          "type": "string",
+          "description": "Path of SDKs inside the OutputDirPath. Available placeholders are {template}, {sdkName}, and {specName}. Default: {template}\\{sdkName}"
         },
         "DocsPath": {
-          "type": [
-            "null",
-            "string"
-          ]
+          "type": "string",
+          "description": "Path of Docs inside the OutputDirPath. Available placeholder is are {sdkName}. Default: DOCS\\{sdkName}"
         },
         "SpecWriteFile": {
-          "type": [
-            "null",
-            "string"
-          ]
+          "type": "string",
+          "description": "Path of Specs inside the OutputDirPath. Available placeholder is {sdkName}. Default: Jenkins\\apimatic-{sdkName}"
         },
         "ThrowError": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controlls throwing error on failure, Default: false"
         },
         "Sdks": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controlls the SDKs generation, Default: false"
         },
         "WriteExamplesInSdks": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controlls code samples generation in SDKs, Default: false"
         },
         "Docs": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controlls Docs generation, Default: false"
         },
         "HttpDocs": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controlls Http Docs generation, Default: false"
         },
         "WriteApimaticSpec": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Controlls spec writing in apimatic type after validation and transformation, Default: false"
         }
       }
     }

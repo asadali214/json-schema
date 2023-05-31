@@ -76,7 +76,7 @@
             "null",
             "object"
           ],
-          "description": "Should only present if we want to merge namespaces to the spec specified at FilePath. Here key is the namespace name, while value is its FilePath"
+          "description": "Should only present if we want to merge namespaces to the spec specified at FilePath. Here key is the namespace name, while value is its FilePath",
           "additionalProperties": {
             "type": "string"
           }

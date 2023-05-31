@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ApiSelector",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "GlobalApis": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/SelectedApi"
+      }
+    },
+    "GlobalApisWithPath": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/SelectedApi"
+        }
+      }
+    },
+    "GlobalTemplates": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/Languages"
+      }
+    },
+    "ExecuteConfigs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "Configurations": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": {
+        "$ref": "#/definitions/ApiConfig"
+      }
+    },
+    "SelectedConfigurations": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/ApiConfig"
+      }
+    }
+  },
+  "definitions": {
+    "SelectedApi": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "FilePath": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Merge": {
+          "type": "boolean"
+        },
+        "Namespaces": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "OnlyForTemplates": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/Languages"
+          }
+        }
+      }
+    },
+    "SupportedTemplates": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "CS_NET_STANDARD_LIB",
+        "JAVA_ECLIPSE_JRE_LIB",
+        "PYTHON_GENERIC_LIB",
+        "RUBY_GENERIC_LIB",
+        "GO_GENERIC_LIB",
+        "HTTP_CURL_V1",
+        "PHP_GENERIC_LIB_V2",
+        "TS_GENERIC_LIB"
+      ],
+      "enum": [
+        "CS_NET_STANDARD_LIB",
+        "JAVA_ECLIPSE_JRE_LIB",
+        "PYTHON_GENERIC_LIB",
+        "RUBY_GENERIC_LIB",
+        "GO_GENERIC_LIB",
+        "HTTP_CURL_V1",
+        "PHP_GENERIC_LIB_V2",
+        "TS_GENERIC_LIB"
+      ]
+    }
+    "Languages": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "cs",
+        "java",
+        "python",
+        "ruby",
+        "go",
+        "php",
+        "ts"
+      ],
+      "enum": [
+        "cs",
+        "java",
+        "python",
+        "ruby",
+        "go",
+        "php",
+        "ts"
+      ]
+    },
+    "ApiConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Apis": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/SelectedApi"
+          }
+        },
+        "Templates": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/Languages"
+          }
+        },
+        "UseCiSpecs": {
+          "type": "boolean"
+        },
+        "UseGlobalApis": {
+          "type": "boolean"
+        },
+        "UseGlobalTemplates": {
+          "type": "boolean"
+        },
+        "OpenAfterGeneration": {
+          "type": "boolean"
+        },
+        "OutputDirPath": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "DirectoryPostFix": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SdksPath": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "DocsPath": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SpecWriteFile": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ThrowError": {
+          "type": "boolean"
+        },
+        "Sdks": {
+          "type": "boolean"
+        },
+        "WriteExamplesInSdks": {
+          "type": "boolean"
+        },
+        "Docs": {
+          "type": "boolean"
+        },
+        "HttpDocs": {
+          "type": "boolean"
+        },
+        "WriteApimaticSpec": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

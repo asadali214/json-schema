@@ -1,2 +1,17 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "CustomCodegenSettings",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "EnableCodeGenSettings": {
+      "type": "boolean",
+      "description": "Controls applying the specified CodeGenSettings to all of the generated SDKs and Docs."
+    },
+    "CodeGenSettings": {
+      "type": "object",
+      "additionalProperties": {},
+      "description": "KeyValue Pairs, where Keys corresponds to actual CodegenSetting Names while the Values are their values."
+    }
+  }
 }

@@ -1,0 +1,631 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "CustomCodegenSettings",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "EnableCodeGenSettings": {
+      "type": "boolean",
+      "description": "Controls applying the specified CodeGenSettings to all of the generated SDKs and Docs. Default: false"
+    },
+    "CodeGenSettings": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/CodeGenSettings"
+        }
+      ],
+      "description": "KeyValue Pairs, where Keys corresponds to actual CodegenSetting Names while the Values are their values. Default: null"
+    }
+  },
+  "definitions": {
+    "CodeGenSettings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SynchronyMode": {
+          "$ref": "#/definitions/SynchronyMode"
+        },
+        "ModelSerializationScheme": {
+          "$ref": "#/definitions/SerializationScheme"
+        },
+        "ArraySerialization": {
+          "$ref": "#/definitions/ArraySerialization"
+        },
+        "Nullify404": {
+          "type": "boolean"
+        },
+        "UseHttpMethodPrefix": {
+          "type": "boolean"
+        },
+        "UseModelPrefix": {
+          "type": "boolean"
+        },
+        "UseExceptionPrefix": {
+          "type": "boolean"
+        },
+        "UseEnumPrefix": {
+          "type": "boolean"
+        },
+        "UseControllerPrefix": {
+          "type": "boolean"
+        },
+        "ControllerPostfix": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UseConstructorsForConfig": {
+          "type": "boolean"
+        },
+        "Timeout": {
+          "type": "number",
+          "format": "float"
+        },
+        "AndroidUseAppManifest": {
+          "type": "boolean"
+        },
+        "iOSUseAppInfoPlist": {
+          "type": "boolean"
+        },
+        "iOSGenerateCoreData": {
+          "type": "boolean"
+        },
+        "CollapseParamsToArray": {
+          "type": "boolean"
+        },
+        "RunscopeEnabled": {
+          "type": "boolean"
+        },
+        "RunscopeBucket": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AndroidHttpClient": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "JavaHttpClient": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ObjCHttpClient": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "CSharpHttpClient": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "NodeHttpClient": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "CSharpNamespace": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ControllerNamespace": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "GoImportPath": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "JavaPackageName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "JavaGroupId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "JavaArtifactId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "JavaUsePropertiesConfig": {
+          "type": "boolean"
+        },
+        "ObjCUniquenessPrefix": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PHPHttpClient": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EnablePHPComposerVersionString": {
+          "type": "boolean"
+        },
+        "PHPComposerPackageName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PHPNamespace": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "BrandLabel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UserAgent": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EnableGlobalUserAgent": {
+          "type": "boolean"
+        },
+        "ProjectName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ClientInterfaceName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "DateTimeFormat": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EnableAdditionalModelProperties": {
+          "type": "boolean"
+        },
+        "PreserveParameterOrder": {
+          "type": "boolean"
+        },
+        "ValidateRequiredParameters": {
+          "type": "boolean"
+        },
+        "AppendContentHeaders": {
+          "type": "boolean"
+        },
+        "GenerateInterfaces": {
+          "type": "boolean"
+        },
+        "UseCommonSDKLibrary": {
+          "type": "boolean"
+        },
+        "ParameterArrayFormat": {
+          "$ref": "#/definitions/ParameterArrayFormat"
+        },
+        "SecurityProtocols": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/SecurityProtocol"
+          }
+        },
+        "GenerateTravisConfig": {
+          "type": "boolean"
+        },
+        "GenerateCircleConfig": {
+          "type": "boolean"
+        },
+        "GenerateAppveyorConfig": {
+          "type": "boolean"
+        },
+        "GenerateJenkinsConfig": {
+          "type": "boolean"
+        },
+        "EnableLogging": {
+          "type": "boolean"
+        },
+        "EnableHttpCache": {
+          "type": "boolean"
+        },
+        "Retries": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "RetryInterval": {
+          "type": "number",
+          "format": "float"
+        },
+        "BackoffFactor": {
+          "type": "number",
+          "format": "float"
+        },
+        "StatusCodesToRetry": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "RequestMethodsToRetry": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/HTTPVerb"
+          }
+        },
+        "UserConfigurableRetries": {
+          "type": "boolean"
+        },
+        "GenerateAdvancedDocs": {
+          "type": "boolean"
+        },
+        "DisableDocs": {
+          "type": "boolean"
+        },
+        "StoreTimezoneInformation": {
+          "type": "boolean"
+        },
+        "UnderscoreNumbers": {
+          "type": "boolean"
+        },
+        "UseSingletonPattern": {
+          "type": "boolean"
+        },
+        "IgnoreIfNullJson": {
+          "type": "boolean"
+        },
+        "DisableLinting": {
+          "type": "boolean"
+        },
+        "SortResources": {
+          "type": "boolean"
+        },
+        "LiftParameterDescriptionFromCustomType": {
+          "type": "boolean"
+        },
+        "AllowSkippingSSLCertVerification": {
+          "type": "boolean"
+        },
+        "ApplyCustomizations": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "DoNotSplitWords": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReturnCompleteHttpResponse": {
+          "type": "boolean"
+        },
+        "ThrowForHttpErrorStatusCodes": {
+          "type": "boolean"
+        },
+        "GenerateModels": {
+          "type": "boolean"
+        },
+        "GenerateEnums": {
+          "type": "boolean"
+        },
+        "GenerateExceptions": {
+          "type": "boolean"
+        },
+        "ResponseMapping": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/ResponseMappingStrategy"
+            }
+          ]
+        },
+        "ForceKeywordArgsInRuby": {
+          "type": "boolean"
+        },
+        "SymbolizeHashKeysInRuby": {
+          "type": "boolean"
+        },
+        "UsageExampleEndpoint": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/UsageExampleEndpoint"
+            }
+          ]
+        },
+        "IsLatestVersion": {
+          "type": "boolean"
+        },
+        "ShortCopyrightNotice": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "CustomDependencies": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/CustomDependency"
+          }
+        },
+        "LicenseText": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EnableImmutableModels": {
+          "type": "boolean"
+        },
+        "UseEndpointMethodName": {
+          "type": "boolean"
+        },
+        "EncodeTemplateParameters": {
+          "type": "boolean"
+        },
+        "GenerateExamplesForOptionalFields": {
+          "type": "boolean"
+        },
+        "MultitargetDotnetVersions": {
+          "type": "boolean"
+        },
+        "BackoffMax": {
+          "type": "number",
+          "format": "float"
+        },
+        "RetryOnTimeout": {
+          "type": "boolean"
+        },
+        "EnableCookies": {
+          "type": "boolean"
+        },
+        "EnableJsonPassThroughForAny": {
+          "type": "boolean"
+        },
+        "PascalCaseEnumForCSharp": {
+          "type": "boolean"
+        },
+        "PascalCaseEnumForTypeScript": {
+          "type": "boolean"
+        },
+        "EnableExperimentalTypeCombinatorGeneration": {
+          "type": "boolean"
+        },
+        "ErrorTemplates": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SynchronyMode": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Asynchronous",
+        "Synchronous"
+      ],
+      "enum": [
+        "Asynchronous",
+        "Synchronous"
+      ]
+    },
+    "SerializationScheme": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Json",
+        "Xml"
+      ],
+      "enum": [
+        "Json",
+        "Xml"
+      ]
+    },
+    "ArraySerialization": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Indexed",
+        "UnIndexed",
+        "Plain",
+        "CSV",
+        "TSV",
+        "PSV"
+      ],
+      "enum": [
+        "Indexed",
+        "UnIndexed",
+        "Plain",
+        "CSV",
+        "TSV",
+        "PSV"
+      ]
+    },
+    "ParameterArrayFormat": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ParamNameOnly",
+        "ParamArrayWithoutIndex",
+        "ParamArrayWithIndex"
+      ],
+      "enum": [
+        "ParamNameOnly",
+        "ParamArrayWithoutIndex",
+        "ParamArrayWithIndex"
+      ]
+    },
+    "SecurityProtocol": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Ssl3",
+        "Tls",
+        "Tls11",
+        "Tls12"
+      ],
+      "enum": [
+        "Ssl3",
+        "Tls",
+        "Tls11",
+        "Tls12"
+      ]
+    },
+    "HTTPVerb": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ],
+      "enum": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    "ResponseMappingStrategy": {
+      "type": "object",
+      "x-abstract": true,
+      "additionalProperties": false
+    },
+    "UsageExampleEndpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EndpointGroupName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EndpointName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "CustomDependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Version": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Groupid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Scope": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/CustomDependencyScope"
+            }
+          ]
+        }
+      }
+    },
+    "CustomDependencyScope": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Runtime",
+        "Compile",
+        "Test"
+      ],
+      "enum": [
+        "Runtime",
+        "Compile",
+        "Test"
+      ]
+    }
+  }
+}

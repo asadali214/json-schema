@@ -6,12 +6,15 @@
   "properties": {
     "EnableCodeGenSettings": {
       "type": "boolean",
-      "description": "Controls applying the specified CodeGenSettings to all of the generated SDKs and Docs."
+      "description": "Controls applying the specified CodeGenSettings to all of the generated SDKs and Docs. Default: false"
     },
     "CodeGenSettings": {
-      "type": "object",
+      "type": [
+        "null",
+        "object"
+      ],
       "additionalProperties": {},
-      "description": "KeyValue Pairs, where Keys corresponds to actual CodegenSetting Names while the Values are their values."
+      "description": "KeyValue Pairs, where Keys corresponds to actual CodegenSetting Names while the Values are their values. Default: null"
     }
   }
 }

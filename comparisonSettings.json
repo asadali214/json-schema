@@ -1,2 +1,23 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ComparisonSettings",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "CompareWithBranch": {
+      "type": "string",
+      "description": "Remote branch name. Local SDKs will be generated and compared with this branch of codegen. Default: v3-staging"
+    },
+    "ComparisonPath": {
+      "type": "string",
+      "description": "Local and Remote SDKs will be generated at this path. Default: /bin/*/*/"
+    },
+    "WinMergePath": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "System Path to WinMergeU.exe. If specified, application will compare, the local and remote SDKs directories after generation, using WinMerge. Default: null"
+    }
+  }
 }

@@ -1,0 +1,903 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "PackageManagerSettings",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "EnableRepositoryParams": {
+      "type": "boolean",
+      "description": "Controls applying the specified RepositoryParameters to all of the generated SDKs and Docs. Default: false"
+    },
+    "RepositoryParameters": {
+      "$ref": "#/definitions/RepositoryParameters",
+      "description": "Repository parameters dictionaries for each LanguageTemplate. These parameters will be used as Package Publishing Settings in SDKs and Docs. Default: null"
+    }
+  },
+  "definitions": {
+    "RepositoryParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "PHP_GENERIC_LIB_V2": {
+          "$ref": "#/definitions/PHPPackageConfiguration",
+          "description": "Repository parameters for PHP. Default: null"
+        },
+        "CS_NET_STANDARD_LIB": {
+          "$ref": "#/definitions/CSharpPackageConfiguration",
+          "description": "Repository parameters for C#. Default: null"
+        },
+        "JAVA_ECLIPSE_JRE_LIB": {
+          "$ref": "#/definitions/JavaPackageConfiguration",
+          "description": "Repository parameters for Java. Default: null"
+        },
+        "PYTHON_GENERIC_LIB": {
+          "$ref": "#/definitions/PythonPackageConfiguration",
+          "description": "Repository parameters for Python. Default: null"
+        },
+        "RUBY_GENERIC_LIB": {
+          "$ref": "#/definitions/RubyPackageConfiguration",
+          "description": "Repository parameters for Ruby. Default: null"
+        },
+        "GO_GENERIC_LIB": {
+          "$ref": "#/definitions/GoPackageConfiguration",
+          "description": "Repository parameters for GO. Default: null"
+        },
+        "TS_GENERIC_LIB": {
+          "$ref": "#/definitions/TSPackageConfiguration",
+          "description": "Repository parameters for TS. Default: null"
+        }
+      }
+    },
+    "PHPPackageConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "VendorName",
+        "ProjectName",
+        "Version"
+      ],
+      "properties": {
+        "VendorName": {
+          "type": "string"
+        },
+        "ProjectName": {
+          "type": "string"
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Version": {
+          "type": "string"
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Homepage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Readme": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "License": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Keywords": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Authors": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/Author"
+          }
+        },
+        "Support": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/PhpSupport"
+            }
+          ]
+        },
+        "Funding": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/Funding"
+          }
+        }
+      }
+    },
+    "Author": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Homepage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Role": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "PhpSupport": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Issues": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Forum": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Wiki": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Irc": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Chat": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Source": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Docs": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Rss": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "Funding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "CSharpPackageConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PackageId",
+        "Version"
+      ],
+      "properties": {
+        "PackageId": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "Authors": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PackageTags": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "RepositoryUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "RepositoryType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PackageProjectUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PackageReleaseNotes": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Copyright": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PackageIcon": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "JavaPackageConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "GroupId",
+        "ArtifactId",
+        "Version"
+      ],
+      "properties": {
+        "GroupId": {
+          "type": "string"
+        },
+        "ArtifactId": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Developers": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/Developer"
+          }
+        },
+        "DistributionManagement": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/DistributionManagement"
+            }
+          ]
+        },
+        "Scm": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/Scm"
+            }
+          ]
+        },
+        "Licenses": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/License"
+          }
+        }
+      }
+    },
+    "Developer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "organization": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "organizationUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "DistributionManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "snapshotRepository": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SnapshotRepository"
+            }
+          ]
+        },
+        "repository": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/Repository"
+            }
+          ]
+        }
+      }
+    },
+    "SnapshotRepository": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "Repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "Scm": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "connection": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "developerConnection": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "License": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "distribution": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "PythonPackageConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Version"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Readme": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Classifiers": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Keywords": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Authors": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/Author2"
+          }
+        },
+        "Maintainers": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/Author2"
+          }
+        },
+        "Urls": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "License": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Author2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "RubyPackageConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Version"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "Summary": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PostInstallMessage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Homepage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Licenses": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Authors": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Email": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Requirements": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Metadata": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GoPackageConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PackageName",
+        "Version"
+      ],
+      "properties": {
+        "PackageName": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        }
+      }
+    },
+    "TSPackageConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name",
+        "Version"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Author": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/AuthorModel"
+            }
+          ]
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Version": {
+          "type": "string"
+        },
+        "Homepage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "License": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Contributors": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/AuthorModel"
+          }
+        },
+        "Keywords": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "Bugs": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/BugsModel"
+            }
+          ]
+        },
+        "Repository": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/RepositoryModel"
+            }
+          ]
+        }
+      }
+    },
+    "AuthorModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "BugsModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "RepositoryModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Directory": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}

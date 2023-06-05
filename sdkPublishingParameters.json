@@ -9,7 +9,14 @@
       "description": "Controls applying the specified RepositoryParameters to all of the generated SDKs and Docs. Default: false"
     },
     "RepositoryParameters": {
-      "$ref": "#/definitions/RepositoryParameters",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/RepositoryParameters"
+        }
+      ],
       "description": "Repository parameters dictionaries for each LanguageTemplate. These parameters will be used as Package Publishing Settings in SDKs and Docs. Default: null"
     }
   },
@@ -19,31 +26,80 @@
       "additionalProperties": false,
       "properties": {
         "PHP_GENERIC_LIB_V2": {
-          "$ref": "#/definitions/PHPPackageConfiguration",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/PHPPackageConfiguration"
+            }
+          ],
           "description": "Repository parameters for PHP. Default: null"
         },
         "CS_NET_STANDARD_LIB": {
-          "$ref": "#/definitions/CSharpPackageConfiguration",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/CSharpPackageConfiguration"
+            }
+          ],
           "description": "Repository parameters for C#. Default: null"
         },
         "JAVA_ECLIPSE_JRE_LIB": {
-          "$ref": "#/definitions/JavaPackageConfiguration",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/JavaPackageConfiguration"
+            }
+          ],
           "description": "Repository parameters for Java. Default: null"
         },
         "PYTHON_GENERIC_LIB": {
-          "$ref": "#/definitions/PythonPackageConfiguration",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/PythonPackageConfiguration"
+            }
+          ],
           "description": "Repository parameters for Python. Default: null"
         },
         "RUBY_GENERIC_LIB": {
-          "$ref": "#/definitions/RubyPackageConfiguration",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/RubyPackageConfiguration"
+            }
+          ],
           "description": "Repository parameters for Ruby. Default: null"
         },
         "GO_GENERIC_LIB": {
-          "$ref": "#/definitions/GoPackageConfiguration",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/GoPackageConfiguration"
+            }
+          ],
           "description": "Repository parameters for GO. Default: null"
         },
         "TS_GENERIC_LIB": {
-          "$ref": "#/definitions/TSPackageConfiguration",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/TSPackageConfiguration"
+            }
+          ],
           "description": "Repository parameters for TS. Default: null"
         }
       }

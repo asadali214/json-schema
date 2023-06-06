@@ -5,20 +5,14 @@
   "additionalProperties": false,
   "properties": {
     "GlobalApis": {
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "description": "Run all the configurations for this list of APIs",
       "items": {
         "$ref": "#/definitions/SelectedApi"
       }
     },
     "GlobalApisWithPath": {
-      "type": [
-        "null",
-        "object"
-      ],
+      "type": "object",
       "description": "Run all the configurations for this list of APIs too, Here keys (i.e. folder paths) will be concatenated with each Api's FilePath",
       "additionalProperties": {
         "type": "array",
@@ -28,30 +22,21 @@
       }
     },
     "GlobalTemplates": {
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "description": "List of languages to be used by all the configurations",
       "items": {
         "$ref": "#/definitions/Languages"
       }
     },
     "ExecuteConfigs": {
-      "type": [
-        "array",
-        "null"
-      ],
-      "description": "Select configuration names from the Configurations Dictionary. These configurations will be executed.",
+      "type": "array",
+      "description": "Select configuration names from the 'Configurations' Dictionary. The selected configurations will be executed.",
       "items": {
         "type": "string"
       }
     },
     "Configurations": {
-      "type": [
-        "null",
-        "object"
-      ],
+      "type": "object",
       "description": "Dictionary of API configurations, here Keys are configuration names.",
       "additionalProperties": {
         "$ref": "#/definitions/ApiConfig"
@@ -62,30 +47,27 @@
     "SelectedApi": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "FilePath"
+      ],
       "properties": {
         "FilePath": {
           "type": "string",
-          "description": "Full path of the spec file, or any spec name from the CI spec directory."
+          "description": "Full path of the spec file/directory, or any spec file/directory name in the CI spec directory."
         },
         "Merge": {
           "type": "boolean",
-          "description": "Controls the merging of all the specs in the directory, when the FilePath leads to a directory."
+          "description": "Controls the merging of all the specs in the directory, when the FilePath leads to a directory. Default: false"
         },
         "Namespaces": {
-          "type": [
-            "null",
-            "object"
-          ],
+          "type": "object",
           "description": "Should only present if we want to merge namespaces to the spec specified at FilePath. Here key is the namespace name, while value is its FilePath",
           "additionalProperties": {
             "type": "string"
           }
         },
         "OnlyForTemplates": {
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "description": "Restrict code generation for this api to a limited number of languages",
           "items": {
             "$ref": "#/definitions/Languages"
@@ -120,20 +102,14 @@
       "additionalProperties": false,
       "properties": {
         "Apis": {
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "description": "List of APIs to be generated only for this configuration",
           "items": {
             "$ref": "#/definitions/SelectedApi"
           }
         },
         "Templates": {
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "description": "List of languages to be used only by this configuration",
           "items": {
             "$ref": "#/definitions/Languages"
